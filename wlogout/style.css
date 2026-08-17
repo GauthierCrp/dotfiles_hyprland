@@ -1,0 +1,56 @@
+* {
+  background-image: none;
+  box-shadow: none;
+}
+
+window {
+  background-color: rgba(0,0,0,0.5);
+}
+
+grid {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+  color: #f8f8f2;
+  background-color: #282a36;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+  background-clip: padding-box;
+  border-radius: 30px;
+  margin-left: 4px;
+  margin-right: 4px;
+  min-height: 260px;
+  min-width: 80px;
+  border-width: 6px;
+  border-color: #21222c;
+  font-size: large;
+}
+
+button:focus, button:active, button:hover {
+  background-color: #799eab;
+  outline-style: none;
+  
+}
+
+#lock {
+  background-image: image(url("/home/macintosh/.config/wlogout/icons/lock.png"), url("/home/macintosh/.config/wlogout/icons/lock.png"));
+}
+
+#shutdown {
+  background-image: image(url("/home/macintosh/.config/wlogout/icons/shutdown.png"), url("/home/macintosh/.config/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+  background-image: image(url("/home/macintosh/.config/wlogout/icons/reboot.png"), url("/home/macintosh/.config/wlogout/icons/reboot.png"));
+}
+
+#suspend {
+  background-image: image(url("/home/macintosh/.config/wlogout/icons/suspend.png"), url("/home/macintosh/.config/wlogout/icons/suspend.png"));
+}
+
+#logout {
+  background-image: image(url("/home/macintosh/.config/wlogout/icons/logout.png"), url("/home/macintosh/.config/wlogout/icons/logout.png"));
+}

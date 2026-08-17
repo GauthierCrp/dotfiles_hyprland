@@ -1,0 +1,106 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 85,
+    "margin-top": 0,
+    "margin-bottom": -15,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 4,
+
+    "modules-left": [],
+    "modules-center": [
+        "hyprland/workspaces",
+        "custom/macos",
+	"custom/win98",
+        "clock",
+        "custom/recorder",
+        "pulseaudio",
+        "network",
+        "tray",
+        "custom/notification",
+        "custom/power"
+    ],
+    "modules-right": [],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "disable-scroll": false,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "active-only": false,
+        "all-outputs": true,
+        "show-special": true,
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4]
+        },
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+	    "4": "4",
+            "default": "?"
+        }
+    },
+    
+    "clock": {
+        "format": " {:%b %d, %I:%M %p} ",
+        "format-alt": " {:%A, %d %B %Y | %H:%M:%S} ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "on-click": "mode"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "🔇 Muted",
+        "format-icons": ["", "", ""],
+        "on-click": "pavucontrol",
+        "tooltip": true
+    },
+
+    "network": {
+        "format-wifi": " {essid} {signalStrength}%",
+        "format-ethernet": "󰈀 {ifname}",
+        "format-linked": "?? {ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip-format": "{ifname} via {gwaddr}\n{essid} {signalStrength}%",
+        "on-click": "nm-connection-editor"
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8,
+        "show-passive-items": true
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "🔔",
+        "on-click": "swaync-client -t -sw",
+        "escape": true,
+        "return-type": "json"
+    },
+
+    "custom/macos": {
+        "format": "󰀵 ",
+        "tooltip": false,
+        "on-click": "env PATH=$PATH:$HOME/.local/bin bash '/home/macintosh/mac_emu/startup.sh'"
+    },
+
+
+    "custom/win98": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "env PATH=$PATH:$HOME/.local/bin bash '/home/macintosh/win_emu/startup.sh'"
+    },
+
+
+
+
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "wlogout -b 5"
+    }
+}

@@ -1,0 +1,57 @@
+
+# --- CONFIGURATION DU MONITEUR ---
+# Remplacez HDMI-A-1 par la sortie vidéo exacte si besoin (utilisez 'hyprctl monitors' pour vérifier)
+# Format : monitor = NOM, RESOLUTION@FREQUENCE, POSITION, ECHELLE
+monitor = HDMI-A-1, 2048x1536@60, 0x0, 2
+
+# Defaut Apps
+$terminal = kitty
+
+# --- RACCOURCIS ESSENTIELS ---
+$mainMod = SUPER # Touche Windows ou Commande (Mac)
+
+bind = $mainMod, Return, exec, foot
+bind = $mainMod, Q, killactive,
+bind = $mainMod, M, exit,
+bind = $mainMod, E, exec, wofi --style ~/.config/wofi/style.css --show drun
+bind = $mainMod, V, togglefloating,
+bind = $mainMod, F, fullscreen,
+bind = $mainMod, T, exec, $terminal,
+bind = $mainMod, /, exec, gammastep -O 6500 -b 0.5
+
+
+# Navigation au clavier
+bind = $mainMod, left, movefocus, l
+bind = $mainMod, right, movefocus, r
+bind = $mainMod, up, movefocus, u
+bind = $mainMod, down, movefocus, d
+
+# Manipulations à la souris
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+
+# --- MARGES ET BORDURES (Pour le calage physique) ---
+general {
+    gaps_in = 5
+    gaps_out = 55
+    border_size = 2
+    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+    col.inactive_border = rgba(595959aa)
+    layout = dwindle
+}
+
+decoration {
+    rounding = 8
+}
+
+# Autostart
+exec-once = waybar -c ~/.config/hypr/desktop_widgets.jsonc -s ~/.config/hypr/desktop_widgets.css
+exec-once = hyprpaper
+exec-once = waybar
+exec-once = systemd-inhibit --what=idle --who="Hyprland" --why="Disable idle" sleep infinity
+
+
+# Widget de Demarrage
+exec-once = kitty -e
+exec-once = kitty -e tty-clock -s -c -C 4
+exec-once = kitty -e cmatrix
